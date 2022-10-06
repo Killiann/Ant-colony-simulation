@@ -4,6 +4,7 @@
 
 int main()
 {
+    cout << "hi40" << endl;
     //app
     sf::RenderWindow window(sf::VideoMode(1000, 700), "SFML works!");    
     window.setFramerateLimit(60);
