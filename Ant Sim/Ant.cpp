@@ -37,10 +37,20 @@ void Ant::Update() {
 	position.x = position.x - speed * cos(mh::DegToRadians(heading - 90));
 	position.y = position.y - speed * sin(mh::DegToRadians(heading - 90));	
 	sprite.setPosition(position);
+
+	if (framesSincePhermone == framesBetweenPhermones) {
+		framesSincePhermone = 0;
+		Phermone p(position, false);
+		homePhermones.push_back(p);
+	}
+	else framesSincePhermone++;
 }
 
 void Ant::Draw(sf::RenderTarget& window) {
 	window.draw(sprite);
+	for (int i = 0; i < homePhermones.size(); i++) {
+		homePhermones[i].Update();		
+	}
 }
 
 float Ant::MinRotation(float A, float B) {

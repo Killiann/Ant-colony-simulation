@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "Phermone.h"
 
 class Ant
 {
@@ -17,6 +18,11 @@ class Ant
 	//map data
 	std::vector<std::vector<int>> mapData;
 	int mapPixelSize;
+
+	//phermones
+	int framesSincePhermone = 0;
+	const int framesBetweenPhermones = 30;
+	std::vector<Phermone> homePhermones;
 public:	
 	Ant(sf::Vector2f pos, std::vector<std::vector<int>> md, int ps);
 
